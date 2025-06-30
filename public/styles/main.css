@@ -1,0 +1,360 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Regular", system-ui, sans-serif;
+    align-items: center;
+}
+
+html {
+    background-color: #DDDDD5;
+    min-height: 1000px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    min-height: 95vh;
+    text-align: center;
+    color: #333;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    /* Prevents horizontal scrolling */
+    width: 100%;
+}
+
+/* Header Container */
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+    overflow: hidden;
+    margin-top: 50px;
+    padding: 50px;
+    margin-bottom: 0px;
+}
+
+
+/* Title on top of the image */
+h1 {
+    position: relative;
+    font-size: 6rem;
+    font-family: "Climate Crisis", sans-serif;
+    color: rgb(122, 183, 0);
+    letter-spacing: 0.2rem;
+}
+
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 4rem;
+        max-width: 90%;
+    }
+
+    .resto-title {
+        font-size: 1.2rem !important;
+        margin: 10px 20px;
+    }
+
+    .button-container button {
+        font-size: 1rem;
+        padding: 8px 12px;
+        gap: 5px;
+
+    }
+}
+
+
+
+
+
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 3rem;
+        max-width: 90%;
+        position: relative;
+        font-size: 6rem;
+        font-family: "Climate Crisis", sans-serif;
+        color: rgb(122, 183, 0);
+        letter-spacing: 0.2rem;
+        font-size: 3rem;
+        max-width: 90%;
+    }
+
+    .header-container {
+        padding: 10px;
+    }
+
+    .items-list {
+        padding: 5px;
+    }
+
+    h1 {
+        position: relative;
+        font-size: 6rem;
+        font-family: "Climate Crisis", sans-serif;
+        color: rgb(122, 183, 0);
+        letter-spacing: 0.2rem;
+        font-size: 3rem;
+        max-width: 90%;
+    }
+
+
+    .button-container {
+        gap: 2px;
+        /* space between buttons */
+
+    }
+
+    .button-container button {
+        font-size: 0.9rem;
+        margin: 2px auto;
+        padding: 2px 2px;
+        /*brings buttons closer together */
+        gap: 2px;
+
+    }
+
+}
+
+
+/* Force breaking into 3 lines for very small screens */
+@media (max-width: 360px) {
+    .header-title {
+        font-size: 4rem;
+        max-width: 90%;
+    }
+
+    .resto-title {
+        font-size: 1.5rem;
+        margin: 10px 20px;
+    }
+}
+
+/* Form Styling where it always occupies 1/4 of the screen*/
+.form-container {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 700px;
+}
+
+/* Form Styling */
+.fill-in-form {
+    align-items: center;
+    background: white;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 800px;
+    background-color: #f8f8f8;
+    text-align: left;
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-align: left;
+}
+
+
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 30px;
+}
+
+.filter-container form {
+    margin: 0;
+}
+
+
+button {
+    background-color: darkolivegreen;
+    color: white;
+    padding: 20px;
+    border: none !important;
+    /* Ensures no border is applied */
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Restaurant List */
+.items-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+}
+
+
+.resto-info {
+    border-radius: 10px;
+    padding: 10px 30px;
+    margin: 10px;
+    text-align: left;
+}
+
+
+
+.resto-title {
+    font-family: "Climate Crisis", system-ui;
+    font-size: 2rem;
+    color: rgb(122, 183, 0);
+    letter-spacing: 0.1rem;
+    margin: 10px 30px;
+    padding: 10px;
+    position: relative;
+    text-align: left;
+    overflow-wrap: break-word;
+}
+
+/* button container that aligns buttons to the left */
+.button-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+    gap: 10px;
+}
+
+
+ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+}
+
+li {
+    background: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+p {
+    font-family: "Helvetica Regular", system-ui;
+    font-size: 1.2rem;
+    color: #555;
+    max-width: 80%;
+    text-align: left;
+
+}
+
+
+/* Edit Form */
+.edit-form {
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+    display: none;
+    background-color: #f8f8f8;
+}
+
+
+
+.edit-form input,
+.edit-form li {
+    width: 95%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    box-shadow: none;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 0px solid #e2e0e0;
+    color: #3a3a3a;
+}
+
+
+/* Form Inputs */
+.restaurant-input,
+.review-input,
+.ranking-input,
+.name-input {
+    background-color: #ffffff;
+    border: 1px solid #e2e0e0;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 20px;
+    width: 80%;
+    color: #333;
+    font-size: 1.4rem;
+}
+
+
+/* Buttons */
+.edit-button,
+.delete-button {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+.delete-button button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(96, 0, 0);
+    margin: 10px;
+}
+
+.delete-button button:hover {
+    background-color: #330207;
+}
+
+.edit-button button {
+    width: 100%;
+    padding: 10px;
+    background-color: darkolivegreen;
+    margin: 10px;
+}
+
+.edit-button button:hover {
+    background-color: rgb(53, 68, 28);
+}

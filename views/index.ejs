@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Reviews</title>
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="header-container">
+    <h1 class="header-title">London Gastro Scene</h1>
+  </div>
+
+
+  <!-- Form to Add a New item -->
+  <div class="form-container">
+    <form action="/add" method="post" class="fill-in-form">
+      <div class="input-group">
+        <input type="text" id="restaurant" name="restaurant" class="restaurant-input" placeholder="🍴 Resto Name"
+          required>
+
+        <input type="number" id="ranking" name="ranking" class="ranking-input" min="1" max="5" autocomplete="off"
+          placeholder="⭐️ Rating (1-5)" required>
+
+        <input type="text" id="review" name="review" class="review-input" autocomplete="off" placeholder="✍🏽 Review"
+          required>
+
+
+        <input type="text" id="name" name="name" class="name-input" placeholder="👤 Your Name" required>
+      </div>
+
+      <button type="submit">Add</button>
+    </form>
+  </div>
+
+  <div class="filter-container">
+    <form action="/filter/asc" method="get">
+      <button type="submit">Sort by Rating (Low to High)</button>
+    </form>
+
+    <form action="/filter/desc" method="get">
+      <button type="submit">Sort by Rating (High to Low)</button>
+    </form>
+  </div>
+
+  <!-- List of Items -->
+  <div class="items-container">
+    <ul>
+      <% items.forEach(item=> { %>
+        <li class="review-input">
+          <!-- Displaying all posts -->
+          <div id="text-<%= item.id %>">
+            <h2 class="resto-title">
+              <%= item.restaurant %>
+            </h2>
+          </div>
+          <div class="resto-info">
+            <p class=>Review: <%= item.comments_about %>
+            </p>
+            <p>Rating: <%= item.ranking %>
+            </p>
+            <p>Date: <%= item.created_at %>
+            </p>
+            <p>Name: <%= item.name %>
+            </p>
+          </div>
+
+          <div class="button-container">
+            <!-- Button to DISPLAY the EDIT form-->
+            <div class="edit-button">
+              <!-- hides the non-editable text view and shows an editable form, allowing the user to modify the content directly in the form -->
+              <button onclick="document.getElementById('text-<%= item.id %>').style.display='none';
+          document.getElementById('edit-form-<%= item.id %>').style.display='block';">✏️ Edit</button>
+            </div>
+
+            <!-- Button to DELETE an item -->
+            <div class="delete-button">
+              <form action="/delete" method="post">
+                <input type="hidden" name="itemIdToBeDeleted" value="<%= item.id %>">
+                <button type="submit">❌ Delete</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Edit form that appears in the same place when you click Edit -->
+          <div id="edit-form-<%= item.id %>" class="edit-form">
+            <form action="/edit" method="post">
+              <ul >
+                <input type="hidden" name="itemIdToBeEdited" value="<%= item.id %>">
+                <li> <input type="text" name="updatedRestaurant" value="<%= item.restaurant %>" autocomplete="off"
+                    required> </li>
+                <li> <input type="text" name="updatedReview" value="<%= item.comments_about %>" autocomplete="off"
+                    required> </li>
+                <li> <input type="number" name="updatedRanking" value="<%= item.ranking %>" autocomplete="off" required>
+                </li>
+                <li> <input type="text" name="updatedName" value="<%= item.name %>" autocomplete="off" required> </li>
+                <li> <button type="submit">Save changes</button> </li>
+              </ul>
+            </form>
+          </div>
+        </li>
+
+        <% }); %>
+    </ul>
+  </div>
+
+  <div>
+    <footer>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>
